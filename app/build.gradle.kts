@@ -11,8 +11,8 @@ android {
         applicationId = "eu.kanade.tachiyomi.extension.all.pawchive"
         minSdk = 21
         targetSdk = 36
-        versionCode = 1
-        versionName = "1.6.1"
+        versionCode = 2
+        versionName = "1.6.2"
 
         manifestPlaceholders += mapOf(
             "extensionName" to "Tachiyomi: Pawchive",

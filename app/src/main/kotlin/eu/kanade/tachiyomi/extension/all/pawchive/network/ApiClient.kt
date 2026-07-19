@@ -2,9 +2,12 @@ package eu.kanade.tachiyomi.extension.all.pawchive.network
 
 import eu.kanade.tachiyomi.network.await
 import kotlinx.serialization.KSerializer
+import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.SerializationException
 import kotlinx.serialization.json.Json
+import kotlinx.serialization.json.decodeFromStream
 import okhttp3.CacheControl
+import okhttp3.Headers
 import okhttp3.HttpUrl
 import okhttp3.OkHttpClient
 import okhttp3.Request
@@ -14,11 +17,13 @@ import java.net.SocketTimeoutException
 /** A small coroutine client for Pawchive's read-only API. */
 class ApiClient(
     private val client: OkHttpClient,
+    private val requestHeaders: Headers,
     private val json: Json = Json {
         ignoreUnknownKeys = true
         explicitNulls = false
     },
 ) {
+    @OptIn(ExperimentalSerializationApi::class)
     suspend fun <T> get(
         url: HttpUrl,
         serializer: KSerializer<T>,
@@ -26,13 +31,14 @@ class ApiClient(
     ): T = try {
         val request = Request.Builder()
             .url(url)
+            .headers(requestHeaders)
             .header("Accept", "application/json")
             .cacheControl(cacheControl)
             .build()
 
         client.newCall(request).await().use { response ->
             if (!response.isSuccessful) throw response.toApiException()
-            json.decodeFromString(serializer, response.body.string())
+            json.decodeFromStream(serializer, response.body.byteStream())
         }
     } catch (error: PawchiveException) {
         throw error

@@ -43,7 +43,7 @@ class PawchiveSource @JvmOverloads constructor(
     }
 
     private val api: PawchiveApi by lazy {
-        injectedApi ?: PawchiveApi(ApiClient(client))
+        injectedApi ?: PawchiveApi(ApiClient(client, headers))
     }
 
     override fun headersBuilder(): Headers.Builder = super.headersBuilder()
