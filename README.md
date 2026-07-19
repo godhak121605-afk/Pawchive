@@ -2,6 +2,16 @@
 
 Pawchive is a Kotlin 2.x, Tachimanga/Tachiyomi-compatible extension that talks directly to the public Pawchive API. It has no backend, proxy, account credential, or hosted service.
 
+## Install in Tachimanga
+
+Add this extension repository in Tachimanga:
+
+```
+https://raw.githubusercontent.com/godhak121605-afk/Pawchive/main/repo/index.min.json
+```
+
+Then install **Pawchive** from Tachimanga's Extensions screen. The repository catalog and APK are hosted directly by GitHub; no server is used.
+
 ## Features
 
 - Latest posts via `GET /api/v1/posts?o=<offset>`.
