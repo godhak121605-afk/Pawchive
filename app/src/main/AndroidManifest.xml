@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-feature android:name="tachiyomi.extension" />
+
+    <application
+        android:allowBackup="false"
+        android:icon="@drawable/ic_pawchive"
+        android:label="${extensionName}">
+        <meta-data
+            android:name="tachiyomix.name"
+            android:value="Pawchive" />
+        <meta-data
+            android:name="tachiyomi.extension.class"
+            android:value="${extensionClass}" />
+        <meta-data
+            android:name="tachiyomi.extension.factory"
+            android:value="" />
+        <meta-data
+            android:name="tachiyomi.extension.nsfw"
+            android:value="1" />
+        <meta-data
+            android:name="tachiyomi.extension.hasReadme"
+            android:value="1" />
+        <meta-data
+            android:name="tachiyomix.contentWarning"
+            android:value="2" />
+        <meta-data
+            android:name="tachiyomix.extensionLib"
+            android:value="1.6" />
+    </application>
+
+</manifest>
