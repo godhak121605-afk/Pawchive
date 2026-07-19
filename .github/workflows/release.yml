@@ -54,7 +54,7 @@ jobs:
           REPO_DIR="$RUNNER_TEMP/pawchive-repo"
           mkdir -p "$REPO_DIR/apk"
           cp app/build/outputs/apk/release/app-release.apk "$REPO_DIR/apk/$APK_NAME"
-          printf '[{"name":"Tachiyomi: Pawchive","pkg":"eu.kanade.tachiyomi.extension.all.pawchive","apk":"apk/%s","lang":"all","code":%s,"version":"%s","nsfw":1,"sources":[{"name":"Pawchive","lang":"all","id":"430936946014843045","baseUrl":"https://pawchive.pw","versionId":1,"hasCloudflare":0}]}]\n' "$APK_NAME" "$VERSION_CODE" "$VERSION_NAME" > "$REPO_DIR/index.min.json"
+          printf '[{"name":"Tachiyomi: Pawchive","pkg":"eu.kanade.tachiyomi.extension.all.pawchive","apk":"%s","lang":"all","code":%s,"version":"%s","nsfw":1,"sources":[{"name":"Pawchive","lang":"all","id":"430936946014843045","baseUrl":"https://pawchive.pw","versionId":1,"hasCloudflare":0}]}]\n' "$APK_NAME" "$VERSION_CODE" "$VERSION_NAME" > "$REPO_DIR/index.min.json"
       - name: Publish GitHub release
         uses: softprops/action-gh-release@v2
         with:
