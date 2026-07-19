@@ -36,6 +36,12 @@ The release workflow runs for a `v*` tag or manually. Before the first release, 
 
 The keystore is intentionally ignored by Git. Keep an offline backup; losing it prevents future releases from updating an installed APK.
 
+Each release publishes a standard Tachimanga/Mihon repository branch. Add this URL in Tachimanga to install Pawchive and receive later updates from the same source:
+
+```
+https://raw.githubusercontent.com/godhak121605-afk/Pawchive/repo/index.min.json
+```
+
 ## License
 
 MIT. Pawchive is unaffiliated with Pawchive and its content providers.
